@@ -1,0 +1,47 @@
+
+		for (int row = 0; row < NUM_OF_ROW; row++){
+			for (int col = 0; col < NUM_OF_COLUMNS - 3; col++){
+				if (board[row][col]==board[row][col+1] &&
+						board[row][col+1]==board[row][col+2] &&
+						board[row][col+2]==board[row][col+3] &&
+						board[row][col]!=' '){
+					return true;
+				}
+			}
+		}
+		//To horizontally check if someone wins
+		for (int row = 0; row < NUM_OF_ROW-3; row++){
+			for (int col = 0; col < NUM_OF_COLUMNS; col++){
+				if (board[row][col]==board[row+1][col] &&
+						board[row+1][col]==board[row+2][col] &&
+						board[row+2][col]==board[row+3][col]&&
+						board[row][col]!=' '){
+					return true;
+				}
+			}
+		}
+		//To vertically check if someone wins
+		for (int row = 0; row < NUM_OF_ROW-3; row++){
+			for (int col = 0; col < NUM_OF_COLUMNS-3; col++){
+				if (board[row][col]==board[row+1][col+1] &&
+						board[row+1][col+1]==board[row+2][col+2] &&
+						board[row+2][col+2]==board[row+3][col+3]&&
+						board[row][col]!=' '){
+					return true;
+				}
+			}
+		}
+		//To diagonally check if someone wins(downward slope)
+		for (int row = 0; row < NUM_OF_ROW-3; row++){
+			for (int col = 3; col < NUM_OF_COLUMNS; col++){
+				if (board[row][col]==board[row+1][col-1] &&
+						board[row+1][col-1]==board[row+2][col-2] &&
+						board[row+2][col-2]==board[row+3][col-3]&&
+						board[row][col]!=' '){
+					return true;
+				}
+			}
+		}
+		//To diagonally check if someone wins(upward slope)
+		return false;
+	}
